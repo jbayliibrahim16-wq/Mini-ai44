@@ -5,11 +5,11 @@ workflows:
     max_build_duration: 60
     environment:
       flutter: 3.22.0
-      cache:
-        enabled: false
     scripts:
       - name: Clean project
-        script: flutter clean && flutter pub get
+        script: flutter clean
+      - name: Get dependencies  
+        script: flutter pub get
       - name: Build APK
         script: flutter build apk --release
     artifacts:

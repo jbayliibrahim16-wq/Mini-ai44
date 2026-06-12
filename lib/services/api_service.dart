@@ -25,7 +25,7 @@ class ApiService {
   // Create or get user
   static Future<Map<String, dynamic>> createUser(String username) async {
     try {
-      final baseUrl = await getBaseUrl();
+      final baseUrl = getBaseUrl();
       if (baseUrl.isEmpty) {
         throw Exception('API URL not configured. Please go to Settings.');
       }
@@ -47,7 +47,7 @@ class ApiService {
   // Create new chat
   static Future<Map<String, dynamic>> createChat(int userId, String title) async {
     try {
-      final baseUrl = await getBaseUrl();
+      final baseUrl = getBaseUrl();
       if (baseUrl.isEmpty) {
         throw Exception('API URL not configured');
       }
@@ -74,7 +74,7 @@ class ApiService {
   // Get user chats
   static Future<List<dynamic>> getUserChats(int userId) async {
     try {
-      final baseUrl = await getBaseUrl();
+      final baseUrl = getBaseUrl();
       if (baseUrl.isEmpty) {
         throw Exception('API URL not configured');
       }
@@ -96,7 +96,7 @@ class ApiService {
   // Get chat messages
   static Future<List<dynamic>> getChatMessages(int chatId) async {
     try {
-      final baseUrl = await getBaseUrl();
+      final baseUrl = getBaseUrl();
       if (baseUrl.isEmpty) {
         throw Exception('API URL not configured');
       }
@@ -116,14 +116,14 @@ class ApiService {
   }
 
   // Send message and stream response
-  static Future<Stream<String>> sendMessage({
+  static Stream<String> sendMessage({
     required int userId,
     required int chatId,
     required String username,
     required String content,
-  }) async {
+  }) {
     try {
-      final baseUrl = await getBaseUrl();
+      final baseUrl = getBaseUrl();
       if (baseUrl.isEmpty) {
         throw Exception('API URL not configured');
       }
@@ -173,9 +173,9 @@ class ApiService {
     required int chatId,
     required String filePath,
     required String fileName,
-  }) async {
+  }) {
     try {
-      final baseUrl = await getBaseUrl();
+      final baseUrl = getBaseUrl();
       if (baseUrl.isEmpty) {
         throw Exception('API URL not configured');
       }
@@ -206,7 +206,7 @@ class ApiService {
   // Health check
   static Future<bool> healthCheck() async {
     try {
-      final baseUrl = await getBaseUrl();
+      final baseUrl = getBaseUrl();
       if (baseUrl.isEmpty) {
         return false;
       }

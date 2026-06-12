@@ -6,9 +6,10 @@ workflows:
     environment:
       flutter: 3.22.0
     scripts:
-      - name: Clean project
-        script: flutter clean
-      - name: Get dependencies  
+      - name: Generate Android folder
+        script: |
+          flutter create . --platforms=android
+      - name: Get dependencies
         script: flutter pub get
       - name: Build APK
         script: flutter build apk --release

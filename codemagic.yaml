@@ -6,8 +6,6 @@ workflows:
     environment:
       flutter: 3.22.2 # حدّثنا Flutter لنسخة احدث شوي
       java: 17       # حددنا الجافا
-      android_signing:
-        - codemagic_debug # منعطي توقيع debug مشان يمشي الحال
     scripts:
       - name: Generate Android folder
         script: |
